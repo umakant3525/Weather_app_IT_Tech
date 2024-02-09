@@ -41,7 +41,6 @@ Replace const apiKey = "your_api_key"; in the App.jsx file with your API key.
 ## Step 5: Run Your Project
 Run the project:
 ```bash
-Copy code
 npm run dev
 ```
 
