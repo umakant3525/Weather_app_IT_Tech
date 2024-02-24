@@ -5,17 +5,16 @@ import SearchBar from './components/Search';
 import WeatherDisplay from './components/WeatherDisplay';
 import NoDataMessage from './components/NoDataComponent';
 
-//const apiKey = import.meta.env.REACT_APP_API_KEY;
-const apiKey = "your_api_key";
+ const apiKey = import.meta.env.VITE_APP_KEY
 
 const getWeather = async (city) => {
-  //  return await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Pune&units=metric&appid=0a5d1c4134ef7508b858706494ad4f43`)
   return await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
     .then((res) => res.json())
     .then((json) => {
       return json;
     });
 };
+console.log(getWeather("pune"))
 
 function App() {
   const [city, setCity] = useState("");
@@ -29,6 +28,7 @@ function App() {
 
   return (
     <div className="app">
+{ console.log(weather) }
       <Header/>
       <SearchBar city={city} setCity={setCity} getWeather={getWeatherByCity} />
       {weather.weather ? <WeatherDisplay weather={weather} /> : <NoDataMessage />}
